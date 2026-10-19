@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Container from "../Container/Container";
 
 const navLinks = [
     { name: "About", path: "#about" },
@@ -15,7 +16,7 @@ export default function Navbar() {
 
     return (
         <nav className="sticky top-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-xl">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+            <Container className="flex items-center justify-between py-4">
                 {/* Logo */}
                 <Link
                     href="/"
@@ -54,7 +55,7 @@ export default function Navbar() {
                 >
                     Let&apos;s Talk <span aria-hidden="true">↗</span>
                 </Link>
-            </div>
+            </Container>
         </nav>
     );
 }

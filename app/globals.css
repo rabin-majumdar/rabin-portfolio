@@ -34,6 +34,38 @@
   --font-mono: var(--font-geist-mono);
 }
 
+
+@theme {
+  --animate-fade-up: fade-up 1.5s ease-out both;
+  --animate-fade-up-delayed: fade-up 1.5s ease-out 200ms both;
+  --animate-float: float 4s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+
 * {
   box-sizing: border-box;
 }
