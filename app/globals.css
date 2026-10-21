@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
   color-scheme: dark;
@@ -79,4 +80,41 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+}
+
+/* Skills Card Aura Animation */
+@keyframes skills-aura-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.skills-aura {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.skills-aura::before {
+  content: "";
+  position: absolute;
+  inset: -150%;
+  z-index: -1;
+  background: conic-gradient(from 0deg,
+      transparent 0deg,
+      transparent 280deg,
+      #34d399 320deg,
+      #a7f3d0 340deg,
+      transparent 360deg);
+  animation: skills-aura-spin 8s linear infinite;
+}
+
+.skills-aura::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: #101013;
 }
