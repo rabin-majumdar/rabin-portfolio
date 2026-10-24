@@ -16,32 +16,8 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="relative flex min-h-[80svh] items-center overflow-x-clip py-12 sm:min-h-[80svh] sm:py-16 lg:min-h-[calc(100svh-5rem)] lg:py-12"
+            className="relative flex min-h-[80svh] items-center overflow-x-clip py-12 sm:min-h-[80svh] sm:py-16 lg:min-h-[calc(100svh-5rem)] lg:py-12 scroll-mt-20"
         >
-
-            {/* Subtle Gradient Glow */}
-
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 overflow-hidden"
-            >
-                <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-emerald-500/10 blur-[100px] sm:h-96 sm:w-96" />
-
-                <div className="absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-blue-500/10 blur-[100px] sm:h-96 sm:w-96" />
-            </div>
-
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 opacity-30"
-                style={{
-                    backgroundImage:
-                        "radial-gradient(var(--primary) 1.5px, transparent 1.5px)",
-                    backgroundSize: "22px 22px",
-                    maskImage:
-                        "radial-gradient(ellipse at center, black 20%, transparent 75%)",
-                }}
-            />
-
             <Container className="relative z-10 grid items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
                 {/* Left: Introduction */}
                 <div className="animate-fade-up motion-reduce:animate-none">
@@ -109,7 +85,7 @@ export default function Hero() {
                         {/* Primary Button */}
                         <Link
                             href="#projects"
-                            className="group inline-flex min-h-11 items-center gap-2.5 rounded-full border border-emerald-400/30 bg-linear-to-r from-emerald-500/10 to-blue-500/10 px-5 py-2.5 text-sm font-semibold text-slate-100 shadow-lg shadow-emerald-950/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/60 hover:from-emerald-500/20 hover:to-blue-500/20 hover:shadow-emerald-500/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 sm:px-6"
+                            className="group inline-flex items-center gap-2.5 rounded-full border border-emerald-400/30 bg-linear-to-r from-emerald-500/10 to-blue-500/10 px-5 py-2.5 text-sm font-semibold text-slate-100 shadow-lg shadow-emerald-950/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/60 hover:from-emerald-500/20 hover:to-blue-500/20 hover:shadow-emerald-500/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 sm:px-6"
                         >
                             <FolderCodeIcon
                                 size={16}
@@ -122,14 +98,14 @@ export default function Hero() {
 
                             <ArrowDown
                                 size={16}
-                                className="shrink-0 text-emerald-400 transition-transform duration-300 group-hover:translate-y-1"
+                                className="shrink-0 text-emerald-400 transition-transform duration-300 group-hover:translate-y-2"
                             />
                         </Link>
 
                         {/* Secondary Button */}
                         <Link
                             href="#contact"
-                            className="group inline-flex min-h-11 items-center gap-2.5 rounded-full border border-slate-700/70 bg-slate-900/50 px-5 py-2.5 text-sm font-medium text-slate-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:bg-slate-800/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 sm:px-6"
+                            className="group inline-flex items-center gap-2.5 rounded-full border border-slate-700/70 bg-slate-900/50 px-5 py-2.5 text-sm font-medium text-slate-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:bg-slate-800/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 sm:px-6"
                         >
                             <Mail
                                 size={16}
@@ -197,7 +173,6 @@ export default function Hero() {
 
                 {/* Right: Profile Image and Abstract Design */}
                 <div className="relative mx-auto flex w-full max-w-md items-center justify-center py-4 lg:ml-auto lg:mr-4">
-
 
                     {/* Responsive Green Glow */}
                     <div className="pointer-events-none absolute h-56 w-56 rounded-full bg-emerald-400/15 blur-[60px] sm:h-72 sm:w-72 sm:blur-[75px] lg:h-80 lg:w-80 lg:blur-[90px]" />
