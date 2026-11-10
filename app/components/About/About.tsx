@@ -271,7 +271,6 @@ export default function About() {
                                 style={{ scaleY: lineScale }}
                                 className="absolute bottom-5 left-5 top-5 w-px origin-top -translate-x-1/2 bg-linear-to-b from-emerald-400 to-blue-400"
                             />
-
                             {journey.map((item) => {
                                 const Icon = item.icon;
                                 return (
