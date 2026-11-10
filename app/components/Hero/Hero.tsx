@@ -91,7 +91,7 @@ export default function Hero() {
                                 size={16}
                                 className="shrink-0 text-emerald-400 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110"
                             />
-                            <span>Contact Me</span>
+                            <span>Get in touch</span>
                         </Link>
                     </div>
 
