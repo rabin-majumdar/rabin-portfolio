@@ -39,7 +39,7 @@ export default function Hero() {
 
                     {/* Title */}
                     <div className="mt-5">
-                        <h2 className="group inline-flex items-center gap-2.5 rounded-full border border-emerald-400/20 bg-slate-900/70 px-4 py-2 text-base font-medium tracking-tight text-slate-200 shadow-lg shadow-emerald-950/10 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/40 hover:bg-slate-900 sm:text-lg">
+                        <h2 className="group inline-flex items-center gap-2.5 rounded-lg border border-emerald-400/20 bg-slate-900/70 px-4 py-2 text-base font-medium tracking-tight text-slate-200 shadow-lg shadow-emerald-950/10 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/40 hover:bg-slate-900 sm:text-lg">
                             <TerminalIcon
                                 size={20}
                                 className="text-emerald-400 animate-pulse"
@@ -62,26 +62,6 @@ export default function Hero() {
 
                     {/* Action Buttons */}
                     <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
-
-                        {/* <button
-                            type="button"
-                            onClick={() => scrollToSection("#projects")}
-                            className="group relative inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-slate-900/80 px-6 py-2.5 text-sm font-medium text-slate-100 shadow-lg shadow-emerald-950/50 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/60 hover:bg-slate-800/90 hover:shadow-emerald-500/20"
-                        >
-                            <FolderCodeIcon
-                                size={16}
-                                className="text-emerald-400 transition-all duration-300 group-hover:scale-110 group-hover:text-emerald-300"
-                            />
-
-                            <span className="bg-linear-to-r from-emerald-400 to-blue-400 bg-clip-text font-semibold text-transparent">
-                                Explore My Work
-                            </span>
-
-                            <ArrowDown
-                                size={16}
-                                className="text-emerald-400 transition-all duration-300 group-hover:translate-y-1 group-hover:scale-110 group-hover:text-emerald-300"
-                            />
-                        </button> */}
                         {/* Primary Button */}
                         <Link
                             href="#projects"

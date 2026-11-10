@@ -1,116 +1,23 @@
-// "use client";
-
-// import Image from "next/image";
-// import { useState } from "react";
-// import type { ElementType } from "react";
-
-// type IconProps = {
-//     name: string;
-//     size?: number;
-//     className?: string;
-//     alt?: string;
-//     fallback?: ElementType;
-//     color?: string;
-// };
-
-// export default function CustomIcon({
-//     name,
-//     size = 16,
-//     className = "",
-//     alt,
-//     fallback: FallbackIcon,
-//     color,
-// }: IconProps) {
-//     const [hasError, setHasError] = useState(false);
-
-//     if (hasError && FallbackIcon) {
-//         return (
-//             <FallbackIcon
-//                 size={size}
-//                 color={color}
-//                 className={className}
-//             />
-//         );
-//     }
-
-//     return (
-//         <Image
-//             src={`/icons/${name}.svg`}
-//             alt={alt ?? name}
-//             width={size}
-//             height={size}
-//             className={className}
-//             onError={() => setHasError(true)}
-//         />
-//     );
-// }
-
-// "use client";
-
-// import Image from "next/image";
-// import { useState } from "react";
-// import type { ElementType } from "react";
-
-// type IconProps = {
-//     name: string;
-//     extension?: string;
-//     size?: number;
-//     className?: string;
-//     alt?: string;
-//     fallback?: ElementType;
-//     color?: string;
-// };
-
-// export default function CustomIcon({
-//     name,
-//     extension = "svg",
-//     size = 16,
-//     className = "",
-//     alt,
-//     fallback: FallbackIcon,
-//     color,
-// }: IconProps) {
-//     const [hasError, setHasError] = useState(false);
-
-//     if (hasError && FallbackIcon) {
-//         return (
-//             <FallbackIcon
-//                 size={size}
-//                 color={color}
-//                 className={className}
-//             />
-//         );
-//     }
-
-//     return (
-//         <Image
-//             src={`/icons/${name}.${extension}`}
-//             alt={alt ?? name}
-//             width={size}
-//             height={size}
-//             className={`h-auto ${className}`}
-//             onError={() => setHasError(true)}
-//         />
-//     );
-// }
-
-
 "use client";
 
 import Image from "next/image";
 import { useState } from "react";
-import type { ElementType } from "react";
+import type { ComponentType } from "react";
 
 type IconProps = {
     name: string;
     size?: number;
     className?: string;
     alt?: string;
-    fallback?: ElementType;
+    fallback?: ComponentType<{
+        size?: number;
+        color?: string;
+        className?: string;
+    }>;
     color?: string;
 };
 
-const extensions = ["svg", "png", "webp", "jpg", "jpeg"];
+const extensions = ["svg", "png", "webp", "jpg", "jpeg"] as const;
 
 export default function CustomIcon({
     name,
@@ -140,16 +47,20 @@ export default function CustomIcon({
     return (
         <Image
             src={`/icons/${name}.${extensions[extensionIndex]}`}
-            alt={alt ?? name}
+            alt={alt ?? ""}
             width={size}
             height={size}
             className={className}
+            unoptimized
             onError={() => {
-                if (extensionIndex < extensions.length - 1) {
-                    setExtensionIndex((index) => index + 1);
-                } else {
+                setExtensionIndex((index) => {
+                    if (index < extensions.length - 1) {
+                        return index + 1;
+                    }
+
                     setHasError(true);
-                }
+                    return index;
+                });
             }}
         />
     );

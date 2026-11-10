@@ -27,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-theme="dark"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="relative min-h-full flex flex-col bg-[#09090b]">
@@ -43,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <div
           aria-hidden="true"
-          className="pointer-events-none fixed inset-0 z-0 opacity-20"
+          className="pointer-events-none fixed inset-0 z-0 opacity-30"
           style={{
             backgroundImage:
               "radial-gradient(var(--primary) 1px, transparent 1px)",
@@ -52,8 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               "radial-gradient(ellipse at center, black 15%, transparent 85%)",
           }}
         />
-
-
+        
         {/* Shared Dot Pattern */}
         {/* <div
           aria-hidden="true"
@@ -76,6 +76,4 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </body>
     </html>
   );
-
-
 }

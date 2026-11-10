@@ -24,7 +24,11 @@ import CustomIcon from "../custom-icons/Icon";
 
 type Skill = {
     name: string;
-    Icon: React.ElementType;
+    Icon: React.ComponentType<{
+        size?: number;
+        color?: string;
+        className?: string;
+    }>;
     color: string;
     customIcon?: string;
 };
@@ -56,7 +60,7 @@ const skillCategories: SkillCategory[] = [
     },
     {
         title: "Backend",
-        description: "Learning server-side architecture, development and RESTful APIs.",
+        description: "Building server-side applications and RESTful APIs.",
         Icon: Server,
         skills: [
             { name: "Node.js", Icon: SiNodedotjs, color: "#5FA04E" },
@@ -65,7 +69,7 @@ const skillCategories: SkillCategory[] = [
     },
     {
         title: "Database",
-        description: "Managing data storage, queries, and document schemas.",
+        description: "Working with database design, data storage, and queries.",
         Icon: Database,
         skills: [
             { name: "MongoDB", Icon: SiMongodb, color: "#47A248" },
@@ -93,7 +97,7 @@ const skillCategories: SkillCategory[] = [
     },
     {
         title: "Tools & Deployment",
-        description: "Managing development workflows and deploying web applications.",
+        description: "Using tools to manage projects and deploy web applications.",
         Icon: CloudUpload,
         skills: [
             { name: "Netlify", Icon: SiNetlify, color: "#00C7B7" },

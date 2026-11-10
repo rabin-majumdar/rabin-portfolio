@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import "@heroui/styles";
 
 :root {
   color-scheme: dark;
@@ -139,4 +140,20 @@ body {
   .animate-menu-slide-down {
     animation: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
 }

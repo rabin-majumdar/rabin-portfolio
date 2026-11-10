@@ -22,19 +22,28 @@ export default function Navbar() {
     useEffect(() => {
         const sections = navLinks
             .map((link) => document.getElementById(link.path.slice(1)))
-            .filter((section) => section !== null);
+            .filter((section): section is HTMLElement => section !== null);
+
+        const visibleSections = new Map<string, number>();
 
         const observer = new IntersectionObserver(
             (entries) => {
-                const visibleSections = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort(
-                        (a, b) =>
-                            b.intersectionRatio - a.intersectionRatio,
-                    );
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        visibleSections.set(
+                            entry.target.id,
+                            entry.intersectionRatio,
+                        );
+                    } else {
+                        visibleSections.delete(entry.target.id);
+                    }
+                });
 
-                if (visibleSections[0]) {
-                    setActiveSection(visibleSections[0].target.id);
+                const activeSection = [...visibleSections.entries()]
+                    .sort((a, b) => b[1] - a[1])[0];
+
+                if (activeSection) {
+                    setActiveSection(activeSection[0]);
                 }
             },
             {
@@ -169,7 +178,7 @@ export default function Navbar() {
                     aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                     aria-expanded={isMobileMenuOpen}
                     aria-controls="mobile-navigation"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                     className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/3 text-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary/10 hover:text-primary hover:shadow-lg hover:shadow-emerald-500/10 active:translate-y-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:hidden"
                 >
                     <span
@@ -209,6 +218,7 @@ export default function Navbar() {
                                 <li key={link.path}>
                                     <button
                                         type="button"
+                                        aria-current={isActive ? "location" : undefined}
                                         onClick={() => {
                                             scrollToSection(link.path);
                                             setIsMobileMenuOpen(false);
